@@ -4,7 +4,8 @@ import Router from 'ampersand-router'
 import Layout from './layout'
 import PublicPage from './pages/public'
 import ReposPage from './pages/repos'
-import apiKey from '../.api_storage'
+import spotifyParams from '../.api_storage'
+import * as helper from './helpers/main'
 
 export default Router.extend({
 	renderPage (page, opts = {layout: true}) {
@@ -21,7 +22,8 @@ export default Router.extend({
 
 	routes: {
 	  '': 'public',
-	  'repos': 'repos'
+	  'repos': 'repos',
+	  'login': 'login'
 	},
 
 	public () {
@@ -30,5 +32,13 @@ export default Router.extend({
 
 	repos () {
 		this.renderPage(<ReposPage/>)
+	},
+
+	login () {
+		var state = helper.generateRandomString(16)
+		var query = spotifyParams.query + "state=" + state
+		location.href = 'https://accounts.spotify.com/authorize/?' +  query + ''
 	}
 })
+
+

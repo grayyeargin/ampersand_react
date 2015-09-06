@@ -10,8 +10,8 @@ export default React.createClass({
 				</header>
 				<div>
 					<p>This is a react test app...</p>
-					<a href="/repos" className="button button-large">
-						<span className="mega-octicon octicon-mark-github"></span>Link to Repos
+					<a href="/login" className="button button-large">
+						<span className="mega-octicon octicon-mark-github"></span>Login to SpotiWhaaa?
 					</a>
 				</div>
 			</div>
