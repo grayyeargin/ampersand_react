@@ -14,7 +14,9 @@
   "license": "ISC",
   "dependencies": {
     "ampersand-app": "^1.0.4",
+    "ampersand-model": "^6.0.1",
     "ampersand-react-mixin": "^0.1.4",
+    "ampersand-rest-collection": "^5.0.0",
     "ampersand-router": "^3.0.2",
     "autoprefixer-core": "^5.2.1",
     "babel": "^5.8.23",

@@ -11,7 +11,7 @@ export default Router.extend({
 	renderPage (page, opts = {layout: true}) {
 		if (opts.layout) {
 			page = (
-				<Layout>
+				<Layout me={app.me}>
 					{page}
 				</Layout>
 			)
@@ -23,7 +23,9 @@ export default Router.extend({
 	routes: {
 	  '': 'public',
 	  'repos': 'repos',
-	  'login': 'login'
+	  'login': 'login',
+	  'login/callback': 'loginCallback',
+	  'user': 'profile'
 	},
 
 	public () {
@@ -38,6 +40,19 @@ export default Router.extend({
 		var state = helper.generateRandomString(16)
 		var query = spotifyParams.query + "state=" + state
 		location.href = 'https://accounts.spotify.com/authorize/?' +  query + ''
+	},
+
+	loginCallback () {
+		var spotifyInfo = helper.getSpotifyInfo()
+		if (spotifyInfo.access_token) {
+			app.me.token = spotifyInfo.access_token
+		} else {
+			this.redirectTo('')
+		}
+	},
+
+	profile () {
+		console.log("fuck yeah!!!")
 	}
 })
 
