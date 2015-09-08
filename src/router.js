@@ -3,7 +3,7 @@ import React from 'react'
 import Router from 'ampersand-router'
 import Layout from './layout'
 import PublicPage from './pages/public'
-import ReposPage from './pages/repos'
+import ProfilePage from './pages/profile'
 import spotifyParams from '../.api_storage'
 import * as helper from './helpers/main'
 
@@ -22,18 +22,13 @@ export default Router.extend({
 
 	routes: {
 	  '': 'public',
-	  'repos': 'repos',
 	  'login': 'login',
 	  'login/callback': 'loginCallback',
-	  'user': 'profile'
+	  'users/:id': 'profile'
 	},
 
 	public () {
 		this.renderPage(<PublicPage/>, {layout: false})
-	},
-
-	repos () {
-		this.renderPage(<ReposPage/>)
 	},
 
 	login () {
@@ -52,7 +47,7 @@ export default Router.extend({
 	},
 
 	profile () {
-		console.log("fuck yeah!!!")
+		this.renderPage(<ProfilePage me={app.me}/>)
 	}
 })
 

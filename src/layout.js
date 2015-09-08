@@ -28,7 +28,7 @@ export default React.createClass({
 	        <ul className='list-unstyled list-inline cf'>
 	          <li>SpotiShit</li>
 	          <li><a href='/repos'>Playlist</a></li>
-	          <li className='pull-right'>Hi {me.name}! <a href='/logout'>Logout</a></li>
+	          <li className='pull-right'>Hi, {me.display_name}! <a href='/logout'>Logout</a></li>
 	        </ul>
 	      </nav>
 	      <div className='container'>

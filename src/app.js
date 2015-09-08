@@ -3,7 +3,7 @@ import styles from './styles/main.styl'
 import Router from './router'
 import Me from './models/me'
 
-
+window.app = app
 app.extend({
 	init () {
 		this.me = new Me()
